@@ -1,0 +1,29 @@
+<mat-card>
+    <form>
+        <mat-dialog-content>
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput minlength="3" formControlName="titulo" placeholder="Título" required>
+                    <mat-error *ngIf="form.get('nombre').invalid">Por favor, introduce un nombre correcto</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput formControlName="contenido" placeholder="Contenido" required>
+                    <mat-error *ngIf="form.get('apellido').invalid">Por favor, introduce un apellido correcto</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+                    <input type="file" #filePicker (change)="onImagePicked($event)">
+                </div>
+                <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+                    <img [src]="imagePreview" [alt]="form.value.title">
+                </div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close color="warn" class="bottonFoot">Close</button>
+            <button mat-button color="primary" class="bottonFoot" type="submit">Save</button>
+        </mat-dialog-actions>
+    </form>
+</mat-card>    
