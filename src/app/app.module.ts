@@ -7,13 +7,15 @@ import { MatToolbarModule, MatDividerModule, MatButtonModule, MatInputModule, Ma
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PostCreateComponent } from './post/post-create/post-create.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

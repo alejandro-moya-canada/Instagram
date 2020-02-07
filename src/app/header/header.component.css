@@ -1,7 +1,15 @@
 .mat-toolbar.mat-primary {
     background: white;
     color: black;
-  }
+}
+
+.contenedor {
+    background: white;
+    color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 .logo {
     width: 30%;
@@ -16,21 +24,7 @@
 }
 
 .mat-divider {
-    margin-top: 25px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
- 
-a:hover, a:active{
-    color: lightgray;
-}
- 
-.nav-caption{
-    display: inline-block;
-    padding-left: 6px;
+    margin-top: 15px;
 }
 
 .optionsMenu {
