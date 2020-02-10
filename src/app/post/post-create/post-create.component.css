@@ -1,0 +1,44 @@
+.encabezado {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    width: 60%;
+    margin-top: 90px; 
+}
+.formPost {
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    width: 60%;
+}
+
+.formPost .buttonsForm {
+    text-align: right;
+    
+    margin:1rem auto;
+}
+
+.bottonFoot {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+.image-preview {
+    text-align: center;
+    height: 15rem;
+    margin: 1rem 0;
+}
+
+.image-preview img {
+    width: 50%;
+    height: 100%;
+}
+
+h3 {
+    font-weight: normal;
+}
