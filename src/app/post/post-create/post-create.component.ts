@@ -30,8 +30,8 @@ export class PostCreateComponent implements OnInit {
     this.form.patchValue({ image: file });
     // almacena el valor internamente
     this.form.get('image').updateValueAndValidity();
-  console.log(file);
-//  console.log(this.form);
+  console.log("FILE:    ",file);
+  console.log("FORM:   ",this.form);
     // creo el lector de ficheros
     const reader = new FileReader();
     reader.onload = () => {
@@ -54,7 +54,7 @@ export class PostCreateComponent implements OnInit {
     console.log("JSON DE LOS DATOS:   ", jsonData);
 
     // llamo a la función de añadir publicaciones del servicio
-    this.postService.addPost(jsonData);
+    this.postService.addPost(jsonData, this.form.value.image);
 
   }
 

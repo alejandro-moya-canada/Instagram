@@ -4,27 +4,29 @@
 }
 
 .contenedor {
-    background: white;
+    background-color: white;
     color: black;
+    display: block;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 5;
 }
 
 .logo {
-    width: 30%;
-    background-color: white;
+    margin-top: 35px;
+    margin-left: 2rem;
+    width: 40%;
     display: block;
 }
 
 .imagenInstagram {
-    margin-left: 2rem;
-    margin-top: 2rem;
-    width: 50%;
+    margin-top: 1rem;
+    width: 40%;
 }
 
 .mat-divider {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .optionsMenu {

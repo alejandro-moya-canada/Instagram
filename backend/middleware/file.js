@@ -1,3 +1,5 @@
+console.log("ENTRO EN EL FICHERO FILE.JS");
+
 const multer = require("multer");
 
 const MIME_TYPE_MAP = {
@@ -7,20 +9,7 @@ const MIME_TYPE_MAP = {
 };
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const isValid = MIME_TYPE_MAP[file.mimetype];
-        let error = new Error("Invalid mime type");
-        if(isValid) {
-            error = null;
-        }
-        cb(null, "backend/images");
-    },
-    filename: (req, file, cb) => {
-        // modifico el nombre del fichero cambiando los espacios por guiones
-        const name = file.originalname.toLowerCase().split(' ').join('-');
-        const ext = MIME_TYPE_MAP[file.mimetype];
-        cb(null, name + '-' + Date.now() + '.' + ext);
-    }
+    dest: './storage/assets/public'
 });
 
-module.exports = multer({storage: storage}).single("image");
+module.exports = multer({ storage: storage }).single("image");

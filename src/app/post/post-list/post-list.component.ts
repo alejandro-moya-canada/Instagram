@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-post-list',
@@ -9,12 +11,22 @@ import { PostService } from '../post.service';
 export class PostListComponent implements OnInit {
 
   publicaciones: any;
+  dataPosts = this.postService.dataPosts;
+  BACKEND_URL_IMAGE = environment.apiImage + "/images/";
 
   constructor(private postService: PostService) { }
 
   ngOnInit() {
-  //  this.publicaciones = this.postService.getPosts();
+    // al iniciar la aplicación llamo a la función del servidor para recuperar los posts de la bbdd
+    //  this.publicaciones = this.postService.getPosts();
+    this.refresh();
+  }
 
+  public refresh() {
+    this.dataPosts = this.postService.getPosts().then(response => {
+      this.dataPosts = response;
+      console.log("REFRESH  ", this.dataPosts);
+    })
   }
 
 }

@@ -5,6 +5,8 @@ const debug = require("debug")("node-angular");
 // importo la librería http
 const http = require("http");
 
+const express = require("express");
+
 // aseguro de que el puerto sea un numero valido
 const normalizePort = val => {
     var port = parseInt(val, 10);
@@ -52,6 +54,8 @@ const onListening = () => {
 // configuro el puerto estableciendo el puerto 3000 como el predeterminado
 const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
+
+app.use(express.static('backend/storage/assets/public'));
 
 const server = http.createServer(app);
 // controlador de errores

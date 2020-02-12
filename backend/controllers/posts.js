@@ -6,15 +6,17 @@ exports.createPost = (req, res, next) => {
     const url = req.protocol + '://' + req.get("host");
     console.log("URL:   ", url);
 
+    console.log("REQ. FILE:   ", req.file);
+    console.log("REQ.BODY:   ", req.body);
+    console.log("POST DATA:   ", req.body.postInfo);
+
     const post = new Post({
         contenido: req.body.contenido,
         image: url + "/images/" + req.body.titulo,
-        fechaCreacion: req.body.fechaCreacion,
+        fechaCreacion: req.body.fechaCreacion
     });
 
     console.log("POST:  ",post);
-    console.log("RUTA DE LA IMAGEN:  ", url + "/images/" + req.body.image.name);
-    console.log("RUTA DE LA IMAGEN:  ", url + "/images/" + req.file);
 
     post.save().then(createdPost => {
         console.log("createdPost:  "+createdPost);
@@ -27,12 +29,37 @@ exports.createPost = (req, res, next) => {
                 id: createdPost._id
             }
         });
-    });
-    /*
+    })
     .catch(error => {
         res.status(500).json({
             message: "Ha ocurrido un error en la creación!"
         })
     });
-    */
+    
+    
+}
+
+exports.getPosts = (req, res, next) => {
+    console.log("Llego a getPost");
+    const postQuery = Post.find();
+    let postsActualizados;
+
+    postQuery.then(documents => {
+        postsActualizados = documents;
+        console.log("POSTS ACTALES:  ", postsActualizados);
+        return Post.count();
+    })
+    .then(count => {
+        res.status(200).json({
+            message: "Posts fetched succesfully!",
+            posts: postsActualizados
+        });
+        console.log("Get de las publicaciones");
+    })
+    .catch(error => {
+        res.status(500).json({
+            message: "Fetching posts failed!"
+        })
+    });
+    
 }

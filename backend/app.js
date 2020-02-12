@@ -23,7 +23,7 @@ mongoose.connect("mongodb+srv://alex:bosonit123@cluster0-haaol.mongodb.net/node-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // recuperar imágenes por parte del servidor
-app.use("/images", express.static(path.join("backend/images")));
+app.use("/images", express.static(path.join("backend/storage/assets/public")));
 
 app.use((req,res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");

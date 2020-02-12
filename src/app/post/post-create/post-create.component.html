@@ -10,6 +10,7 @@
             <mat-label>Contenido</mat-label>
             <input matInput #inputContenido formControlName="contenido" placeholder="Escribe un pie de foto" required>
             <mat-hint align="end">{{inputContenido.value?.length || 0}}/250</mat-hint>
+            <mat-error *ngIf="form.get('contenido').invalid" >Introduce un contenido válido</mat-error>
         </mat-form-field>
 
         <div>

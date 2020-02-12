@@ -1,0 +1,12 @@
+.example-card {
+    text-align: center;
+    display: block;
+    margin:1rem auto;
+    width: 50%;
+    margin-top: 100px;
+    margin-bottom: 90px;
+}
+
+.contenidoPost {
+    text-align: left;
+}
