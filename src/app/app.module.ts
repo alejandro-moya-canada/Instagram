@@ -11,7 +11,11 @@ import { FooterComponent } from './footer/footer.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 
 @NgModule({
@@ -20,12 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     PostCreateComponent,
     FooterComponent,
-    PostListComponent
+    PostListComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AuthRoutingModule,
     MatToolbarModule,
     MatDividerModule,
     MatButtonModule,
@@ -37,7 +44,10 @@ import { HttpClientModule } from '@angular/common/http';
     NoopAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

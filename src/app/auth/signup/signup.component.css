@@ -1,0 +1,46 @@
+.example-card {
+    text-align: center;
+    display: block;
+    margin:1rem auto;
+    width: 50%;
+    margin-top: 100px;
+}
+
+.example-card-pie {
+    margin-top: 15px;
+    text-align: center;
+    display: block;
+    margin:1rem auto;
+    width: 50%;
+}
+
+.imagenInstagram {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+#formSignUp {
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    width: 60%;
+}
+
+#botonLogin {
+    text-align: left;
+    margin-right: 20%;
+}
+
+#botonSignUp {
+    text-align: right;
+    margin-left: 20%;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+.pie {
+    display: inline;
+}
