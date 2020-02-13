@@ -31,10 +31,12 @@ export class SignupComponent implements OnInit {
       email: this.form.value.email, nick: this.form.value.nick,
       password: this.form.value.password
     };
+
+    let jsonAuth = { email: this.form.value.email, password: this.form.value.password };
     console.log("JSON DE LOS DATOS:   ", jsonUser);
 
     // envío los datos al servidor
-    this.authService.createUser(jsonUser);
+    this.authService.createUser(jsonUser, jsonAuth);
   }
 
 }

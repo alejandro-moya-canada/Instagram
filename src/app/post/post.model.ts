@@ -4,4 +4,5 @@ export interface Post {
     contenido: string;
     image: string;
     fechaCreacion: Date;
+    creator: string;
 }

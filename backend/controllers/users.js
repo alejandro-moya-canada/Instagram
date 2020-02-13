@@ -7,6 +7,7 @@ exports.userLogin = (req, res, next) => {
     let fetchedUser;
     // busco un usuario por su email
     User.findOne({ email: req.body.email }).then(user => {
+        console.log("USUARIO BUSCADO:  ", user);
         // compruebo si ha encontrado el usuario
         if(!user) {
             return res.status(401).json({

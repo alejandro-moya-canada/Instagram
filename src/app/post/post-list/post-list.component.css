@@ -8,5 +8,19 @@
 }
 
 .contenidoPost {
+    text-align: justify;
+}
+
+.contenidoFecha {
     text-align: left;
+    color: grey;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+ 
+a:hover, a:active{
+    color: red;
 }

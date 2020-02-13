@@ -8,12 +8,14 @@
         </mat-card-header>
     -->
         <img mat-card-image [src]="BACKEND_URL_IMAGE+post.image">
-        <mat-card-content class="contenidoPost">
-            <p> {{ post.contenido }} </p>
-        </mat-card-content>
         <mat-card-actions>
-            <button mat-button>LIKE</button>
+            <a routerLink="#" routerLinkActive="active" ><mat-icon>favorite_border</mat-icon></a>
             <button mat-button>SHARE</button>
         </mat-card-actions>
+        <mat-card-content>
+            <p class="contenidoPost"> {{ post.contenido }} </p>
+            <p class="contenidoFecha">{{ post.fechaCreacion | date:'d MMMM yyyy' }}</p>
+        </mat-card-content>
+        
     </mat-card>
 </div>

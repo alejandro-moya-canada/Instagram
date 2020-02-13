@@ -9,6 +9,7 @@ exports.createPost = (req, res, next) => {
     console.log("REQ. FILE:   ", req.file);
     console.log("REQ.BODY:   ", req.body);
     console.log("POST DATA:   ", req.body.postInfo);
+    
 
     const post = new Post({
         contenido: req.body.contenido,
