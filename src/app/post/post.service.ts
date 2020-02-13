@@ -6,11 +6,13 @@ import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Post } from './post.model';
 import { HttpClient } from '@angular/common/http';
+import { AuthData } from '../auth/auth-data.model';
 
 const BACKEND_URL = environment.apiUrl + "/post/";
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
+    private users: AuthData[] = [];
     private posts: Post[] = [];
     private postsUpdated = new Subject<{ posts: Post[] }>();
 
@@ -23,8 +25,13 @@ export class PostService {
         return new Promise((resolve, reject) => {
             this.http.get(BACKEND_URL +"all").subscribe(response => {
                 console.log("RESPONSE  ", response);
-                resolve(response["posts"]);
-            });
+                //resolve(response["posts"]);
+                this.http.put(BACKEND_URL+"", response["posts"]).subscribe(responseUser => {
+                    console.log("RESPONSE USUARIOS:  ", responseUser);
+                    resolve(response["posts"]);
+                    resolve(response["users"]);
+                });
+            })
         });
 
     /*
