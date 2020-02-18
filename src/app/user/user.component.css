@@ -1,0 +1,33 @@
+.example-card {
+    display: block;
+    margin:1rem auto;
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 90px;
+}
+
+.example-avatar-image {
+    width: 150px;
+    height: 150px;
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.mat-card-header h3 {
+    text-align: center;
+}
+
+.nick {
+    display: block;
+    height: 100%;
+}
+
+.nickUsuario{
+    text-align: center;
+    font-weight: normal;
+}
+
+.containerUser {
+    margin-top: 20px;
+    margin-left: 50px;
+}

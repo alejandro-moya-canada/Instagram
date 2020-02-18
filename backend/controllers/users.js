@@ -38,3 +38,13 @@ exports.userLogin = (req, res, next) => {
         });
     })
 }
+
+exports.perfilUsuario = (req, res, next) => {
+    console.log("LLEGO AL GET USUARIO");
+    console.log("REQ BODDDDY:  ",  req.body);
+    let user;
+
+    User.findById(req.params.id).then(usuario => {
+        
+    })
+}

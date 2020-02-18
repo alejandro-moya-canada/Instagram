@@ -1,12 +1,10 @@
 <div *ngIf="dataPosts.length > 0">
     <mat-card class="example-card" *ngFor="let post of dataPosts">
-    <!--
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>Shiba Inu</mat-card-title>
             <mat-card-subtitle>Dog Breed</mat-card-subtitle>
         </mat-card-header>
-    -->
         <img mat-card-image [src]="BACKEND_URL_IMAGE+post.image">
         <mat-card-actions>
             <a routerLink="#" routerLinkActive="active" ><mat-icon>favorite_border</mat-icon></a>

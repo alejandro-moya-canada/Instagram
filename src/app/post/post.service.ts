@@ -17,11 +17,21 @@ export class PostService {
     private postsUpdated = new Subject<{ posts: Post[] }>();
 
     dataPosts: any;
+    dataStorage: any;
 
     constructor( private http: HttpClient, private router: Router ) {}
 
     getPosts() {
         console.log("RUTA:  ", BACKEND_URL);
+        return new Promise((resolve, reject) => {
+            this.http.get(BACKEND_URL +"all").subscribe(response => {
+                response['posts'].forEach(element => {
+                    console.log("ELEMENT:  ", element);
+                    resolve(element);
+                });
+            })
+        });
+/*
         return new Promise((resolve, reject) => {
             this.http.get(BACKEND_URL +"all").subscribe(response => {
                 console.log("RESPONSE  ", response);
@@ -33,7 +43,7 @@ export class PostService {
                 });
             })
         });
-
+*/
     /*
         this.http.get<{ message: string, posts: any }>(BACKEND_URL)
         .pipe(map((postData) => {

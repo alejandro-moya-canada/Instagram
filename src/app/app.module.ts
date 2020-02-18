@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     FooterComponent,
     PostListComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

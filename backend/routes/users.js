@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const upload = multer({ dest: 'backend/storage/assets/user' });
+const checkAuth = require("../middleware/check.auth");
+
 
 const User = require("../models/user");
 const UserController = require("../controllers/users");
@@ -71,6 +73,7 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
 });
 
 router.post("/login", UserController.userLogin);
+router.get("/user/:id", UserController.perfilUsuario);
 
 
 module.exports = router;

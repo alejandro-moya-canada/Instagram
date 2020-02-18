@@ -47,7 +47,6 @@ router.post('/', checkAuth, upload.single('file'), (req, res, next) => {
 router.get("/all", PostController.getPosts);
 
 // publicaciones con usuario
-router.put("", PostController.getCreatorPost);
 
 
 module.exports = router;

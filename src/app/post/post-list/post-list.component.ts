@@ -24,7 +24,7 @@ export class PostListComponent implements OnInit {
 
   public refresh() {
     this.dataPosts = this.postService.getPosts().then(response => {
-      console.log("REFRESH LIST:  ", response);
+      console.log("REFRESH LISTTTT:  ", response);
       this.dataPosts = response;
       console.log("REFRESH  ", this.dataPosts);
     });
