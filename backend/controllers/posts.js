@@ -51,11 +51,11 @@ exports.getPosts = (req, res, next) => {
             query.forEach((element, index, array) => {
                 User.findById(element.creator).then(user => {
                     postData = {
-                        user: {nombne: user.nombre, nick: user.nick, apellido: user.apellido},
+                        user: {nombre: user.nombre, nick: user.nick, apellido: user.apellido},
                         post: element
                     }
-                    posts.push(postData)
-                    if (index === array.length -1) resolve();
+                    posts.push(postData);
+                    if (index === array.length -1) resolve(posts);
                 })
             })
         })

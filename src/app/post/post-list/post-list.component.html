@@ -1,18 +1,18 @@
 <div *ngIf="dataPosts.length > 0">
-    <mat-card class="example-card" *ngFor="let post of dataPosts">
+    <mat-card class="example-card" *ngFor="let data of dataPosts">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            <mat-card-title>{{ data.user.nick }}</mat-card-title>
+            <mat-card-subtitle>{{ data.user.nombre }} {{ data.user.apellido }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="BACKEND_URL_IMAGE+post.image">
-        <mat-card-actions>
-            <a routerLink="#" routerLinkActive="active" ><mat-icon>favorite_border</mat-icon></a>
-            <button mat-button>SHARE</button>
+        <img mat-card-image [src]="BACKEND_URL_IMAGE+data.post.image">
+        <mat-card-actions class="buttons">
+            <a routerLink="#" routerLinkActive="active"><mat-icon>favorite_border</mat-icon></a>
+            <mat-icon class="comment">chat_bubble_outline</mat-icon>
         </mat-card-actions>
         <mat-card-content>
-            <p class="contenidoPost"> {{ post.contenido }} </p>
-            <p class="contenidoFecha">{{ post.fechaCreacion | date:'d MMMM yyyy' }}</p>
+            <p class="contenidoPost"> <mat-card-subtitle class="nick"> {{ data.user.nick }} </mat-card-subtitle> {{ data.post.contenido }} </p>
+            <p class="contenidoFecha">{{ data.post.fechaCreacion | date:'d MMMM yyyy' }}</p>
         </mat-card-content>
         
     </mat-card>

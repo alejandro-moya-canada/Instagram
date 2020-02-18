@@ -20,7 +20,27 @@ a {
     text-decoration: none;
     color: black;
 }
+
+.comment {
+    margin-left: 20px;
+}
  
 a:hover, a:active{
     color: red;
+}
+
+.nick {
+    font-weight: bold;
+    color: black;
+    display: inline;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.buttons {
+    margin-left: 20px;
+    text-align: left;
 }

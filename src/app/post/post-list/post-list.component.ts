@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class PostListComponent implements OnInit {
 
   publicaciones: any;
+  date: any;
   dataPosts = this.postService.dataPosts;
   BACKEND_URL_IMAGE = environment.apiImage + "/images/";
 
@@ -24,9 +25,9 @@ export class PostListComponent implements OnInit {
 
   public refresh() {
     this.dataPosts = this.postService.getPosts().then(response => {
-      console.log("REFRESH LISTTTT:  ", response);
-      this.dataPosts = response;
-      console.log("REFRESH  ", this.dataPosts);
+      //  console.log("REFRESH LISTTTT:  ", response);
+      this.dataPosts = response["posts"];
+      //  console.log("DTAAAA.  ", response["posts"]);
     });
 
   }
