@@ -17,6 +17,8 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { UserComponent } from './user/user.component';
+import { ErrorComponent } from './error/error.component';
+import { ErrorInterceptor } from './error-interceptor';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { UserComponent } from './user/user.component';
     PostListComponent,
     LoginComponent,
     SignupComponent,
-    UserComponent
+    UserComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +51,11 @@ import { UserComponent } from './user/user.component';
   ],
   providers: [
     DatePipe,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }

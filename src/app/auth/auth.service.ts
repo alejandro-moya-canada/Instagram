@@ -56,11 +56,11 @@ export class AuthService {
             .subscribe(response => {
                 const token = response.token;
                 this.token = token;
-                console.log("TOKEN:  ", token);
+                //  console.log("TOKEN:  ", token);
 
                 if(token) {
                     const expiresInDuration = response.expiresIn;
-                    console.log(expiresInDuration);
+                //    console.log(expiresInDuration);
                     this.setAuthTimer(expiresInDuration);
                     this.isAuthenticated = true;
                     this.userId = response.userId;

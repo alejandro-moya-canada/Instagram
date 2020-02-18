@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     let jsonAuth = { email: this.form.value.email, password: this.form.value.password };
-    console.log("JSON AUTH:   ", jsonAuth);
+    //  console.log("JSON AUTH:   ", jsonAuth);
 
     this.authService.login(jsonAuth);
   }

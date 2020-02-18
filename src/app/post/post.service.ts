@@ -25,7 +25,7 @@ export class PostService {
         console.log("RUTA:  ", BACKEND_URL);
         return new Promise((resolve, reject) => {
             this.http.get(BACKEND_URL +"all").subscribe(response => {
-                console.log("RESPONSEEEEEE:    ", response);
+                //  console.log("RESPONSEEEEEE:    ", response);
                 resolve(response);
             })
         });
