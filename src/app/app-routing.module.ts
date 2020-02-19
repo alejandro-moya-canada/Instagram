@@ -12,9 +12,7 @@ const routes: Routes = [
   // pagina principal   http://localhost:4200
   { path: '', component: PostListComponent, canActivate: [AuthGuard] },
   // págna de creacion de publicaciones   http://localhost:4200/create
-  { path: 'create', component: PostCreateComponent, canActivate: [AuthGuard] },
-  // página del usuario
-  { path: 'user', component: UserComponent, canActivate: [AuthGuard] }
+  { path: 'create', component: PostCreateComponent, canActivate: [AuthGuard] }
 
 ];
 

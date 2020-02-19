@@ -51,7 +51,7 @@ exports.getPosts = (req, res, next) => {
             query.forEach((element, index, array) => {
                 User.findById(element.creator).then(user => {
                     postData = {
-                        user: {nombre: user.nombre, nick: user.nick, apellido: user.apellido},
+                        user: {id: user.id, nombre: user.nombre, nick: user.nick, apellido: user.apellido},
                         post: element
                     }
                     posts.push(postData);

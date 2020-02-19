@@ -11,15 +11,22 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   userIsAuthenticated = false;
   private authListenerSubs: Subscription;
+  private userId: string;
+  
 
   constructor( private authService: AuthService ) { }
 
   ngOnInit() {
     this.userIsAuthenticated = this.authService.getIsAuth();
+    
+    this.userId = this.authService.getUserId();
+    console.log("ID USUARIO:  ", this.userId);
+    
     this.authListenerSubs = this.authService.getAuthStatusListener()
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+    
   }
 
   onLogout() {

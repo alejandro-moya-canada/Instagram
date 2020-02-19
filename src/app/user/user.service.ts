@@ -16,9 +16,26 @@ export class userService {
     getUsuario(userId: string) {
         console.log("LLEGO AL SERVICIO, EL ID:  ", userId);
         console.log("RUTA:  ", BACKEND_URL_USER+userId);
+
+    //    return this.http.get<{ nombre: string; apellido: string; nick: string; email: string }>(BACKEND_URL_USER + userId);
+
         return new Promise ((resolve, reject) => {
             this.http.get(BACKEND_URL_USER + userId).subscribe(response => {
-                console.log("RESPONE USER:  ", response);
+                console.log("RESPONE USER:  ", response["user"]);
+                if(response["user"]) {
+                    this.dataUser = response["user"];
+                }
+                resolve(this.dataUser);
+            });
+        });
+    }
+
+    getPostsByUser(userId: string) {
+        console.log("ID USUARIO SERVICE:  ", userId);
+        return new Promise ((resolve, reject) => {
+            console.log("RUTAAAA:  ", BACKEND_URL_USER+ userId + "/posts");
+            this.http.get(BACKEND_URL_USER+ userId + "/posts").subscribe(response => {
+                console.log("RESPONSEEEEWWW:  ", response);
                 resolve(response);
             });
         });

@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+const Post = require("../models/post");
 
 exports.userLogin = (req, res, next) => {
     let fetchedUser;
@@ -39,12 +40,40 @@ exports.userLogin = (req, res, next) => {
     })
 }
 
-exports.perfilUsuario = (req, res, next) => {
-    console.log("LLEGO AL GET USUARIO");
-    console.log("REQ BODDDDY:  ",  req.body);
-    let user;
+exports.getUser = (req, res, next) => {
+    console.log("ID USUARIO:  ", req.params.id);
+    User.findById(req.params.id).then(user => {
+        if (user) {
+            res.status(201).json({
+                message: "Get user",
+                user: user
+            });
+        } else {
+            res.status(401).json({
+                message: "¡No se ha encontrado al usuario!"
+            });
+        }
+    }).catch(err => {
+        console.log("ERROR   "+err);
+        return res.status(401).json({
+            message: "¡No se ha encontrado al usuario!"
+        });
+    });
+   
+};
 
-    User.findById(req.params.id).then(usuario => {
-        
-    })
-}
+exports.getPostsByUser = (req, res, next) => {
+    console.log("ID USUARIOOO:  ", req.params.id);
+    let query = { creator: req.params.id }
+    Post.find(query).then(post => {
+        console.log("POSTSSSS:   ", post);
+        res.status(201).json({
+            message: "Get posts by user",
+            posts: post
+        });
+    }).catch(err => {
+        return res.status(401).json({
+            message: "¡No se ha encontrado las publicaciones del usuario!"
+        });
+    });
+};

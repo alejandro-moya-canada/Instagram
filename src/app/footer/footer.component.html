@@ -13,7 +13,7 @@
         <a routerLink="#" routerLinkActive="active" class="optionMenu">
             <mat-icon>favorite</mat-icon>
         </a>
-        <a routerLink="/user" routerLinkActive="active" class="optionMenu">
+        <a [routerLink]="['/user', userId]" routerLinkActive="active" class="optionMenu">
             <mat-icon>perm_identity</mat-icon>
         </a>
     </div>

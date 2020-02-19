@@ -15,6 +15,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { UserRoutingModule } from './user/user-routing.module';
+
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { UserComponent } from './user/user.component';
 import { ErrorComponent } from './error/error.component';
@@ -38,6 +40,7 @@ import { ErrorInterceptor } from './error-interceptor';
     HttpClientModule,
     AppRoutingModule,
     AuthRoutingModule,
+    UserRoutingModule,
     MatToolbarModule,
     MatDividerModule,
     MatButtonModule,

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { userService } from './user.service';
-import { PostService } from '../post/post.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -10,23 +11,39 @@ import { PostService } from '../post/post.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor( private authService: AuthService, private userService: userService, private postService: PostService ) { }
+  posts: any;
+  usuario: any;
+  dataUser = this.userService.dataUser;
+  private userId: string;
+
+  BACKEND_URL_IMAGE = environment.apiImage + "/images/";
+
+  constructor( private authService: AuthService, public userService: userService, public route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.refreshUsuario();
+
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if( paramMap.get("userId") != "undefined" ) {
+        this.userId = paramMap.get("userId");
+        console.log("ID USUARIO INICIAL:  ", this.userId);
+
+        this.userService.getUsuario(this.userId).then(userData => {
+          console.log("DATOS DEL USUARIO:  ", userData);
+          this.usuario = userData;
+        });
+
+        this.getPosts(this.userId);
+
+      }
+    });
+
   }
 
-  public refreshUsuario() {
-    let dataStorage = this.authService.getAuthData(); 
-    console.log("DATA STORAGE:  ", dataStorage);
-
-    if(!dataStorage) {
-      return;
-    }
-    console.log("SALTO");
-    let userId = dataStorage.userId;this.userService.getUsuario(userId).then(response => {
-      console.log("RESPONSE", response);
-    });
+  getPosts(userId: string) {
+    this.userService.getPostsByUser(userId).then(postData => {
+      console.log("POST DATAA:   ", postData);
+      this.posts = postData["posts"];
+    })
   }
 
 }

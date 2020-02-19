@@ -73,7 +73,8 @@ router.post('/signup', upload.single('file'), (req, res, next) => {
 });
 
 router.post("/login", UserController.userLogin);
-router.get("/user/:id", UserController.perfilUsuario);
+router.get("/:id", UserController.getUser);
+router.get("/:id/posts", UserController.getPostsByUser);
 
 
 module.exports = router;
