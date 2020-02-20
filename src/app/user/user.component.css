@@ -1,3 +1,7 @@
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
 .example-card {
     display: block;
     margin:1rem auto;
@@ -29,16 +33,18 @@
 
 .containerPosts {
     margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 3%;
 }
 
 .example-card-posts {
-    display: inline;
+    display: inline-block;
     margin: auto;
 }
 
 .mat-card-image {
-    width: 33%;
-    height: 33%;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    max-width: 216px;
+    max-height: 120px;
 }
 

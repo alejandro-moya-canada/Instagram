@@ -63,10 +63,13 @@ exports.getUser = (req, res, next) => {
 };
 
 exports.getPostsByUser = (req, res, next) => {
-    console.log("ID USUARIOOO:  ", req.params.id);
+    //  console.log("ID USUARIOOO:  ", req.params.id);
     let query = { creator: req.params.id }
+    let orderPosts;
     Post.find(query).then(post => {
-        console.log("POSTSSSS:   ", post);
+        //  console.log("POSTSSSS:   ", post);
+        orderPosts = post.reverse(post);
+        //  console.log("ORDER POSTSSSS:  ", orderPosts);
         res.status(201).json({
             message: "Get posts by user",
             posts: post

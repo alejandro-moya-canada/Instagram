@@ -55,6 +55,7 @@ exports.getPosts = (req, res, next) => {
                         post: element
                     }
                     posts.push(postData);
+                    posts.reverse();
                     if (index === array.length -1) resolve(posts);
                 })
             })
