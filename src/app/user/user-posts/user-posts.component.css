@@ -5,14 +5,9 @@
   
 .example-container > * {
     width: 100%;
-    margin-bottom: 15px;
 }
 
 .modalPost {
-    width: 90%;
-}
-
-.mat-dialog-content {
     width: 90%;
 }
 
@@ -23,9 +18,7 @@
 .example-card {
     text-align: center;
     display: block;
-    margin:1rem auto;
     width: 100%;
-    margin-bottom: 90px;
 }
 
 .contenidoPost {
