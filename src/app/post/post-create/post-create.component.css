@@ -30,13 +30,12 @@ input[type="file"] {
 
 .image-preview {
     text-align: center;
-    height: 15rem;
     margin: 1rem 0;
 }
 
 .image-preview img {
-    width: 50%;
-    height: 100%;
+    max-width: 416px;
+    max-height: 232px;
 }
 
 h3 {

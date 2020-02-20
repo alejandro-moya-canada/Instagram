@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { environment } from 'src/environments/environment';
+import { FooterComponent } from 'src/app/footer/footer.component';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
