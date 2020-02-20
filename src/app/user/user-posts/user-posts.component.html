@@ -1,0 +1,25 @@
+<div class="modalPost">
+    <div class="example-container">
+        <mat-card class="example-card" *ngIf="data['usuario']">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ data["usuario"].nick }}</mat-card-title>
+                <mat-card-subtitle>{{ data["usuario"].nombre }} {{ data["usuario"].apellido }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img mat-card-image [src]="BACKEND_URL_IMAGE+data.post.image">
+
+            <mat-card-actions class="buttons">
+                <a routerLink="#" routerLinkActive="active"><mat-icon>favorite_border</mat-icon></a>
+                <mat-icon class="comment">chat_bubble_outline</mat-icon>
+            </mat-card-actions>
+            
+            <mat-card-content>
+                <p class="contenidoPost"> <mat-card-subtitle class="nick"> {{ data["usuario"].nick }} </mat-card-subtitle> {{ data["post"].contenido }} </p>
+                <p class="contenidoFecha">{{ data["post"].fechaCreacion | date:'d MMMM yyyy' }}</p>
+            </mat-card-content>
+
+        </mat-card>
+        
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthData } from './auth-data.model';
 import { environment } from 'src/environments/environment';
 import { Subject } from 'rxjs';
+//  import { FooterService } from '../footer/footer.service';
 
 
 const BACKEND_URL = environment.apiUrl + "/user/";
@@ -19,7 +20,9 @@ export class AuthService {
     private userId: string;
     private authStatusListener = new Subject<boolean>();
 
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient, private router: Router, 
+      //  private footerService: FooterService
+      ) {}
 
     getToken() {
         return this.token;
@@ -71,6 +74,7 @@ export class AuthService {
 
                     // llamo a la función de guardar datos en el almacenamiento local
                     this.saveAuthData(token, expirationDate, this.userId);
+    //                this.footerService.getIdUser();
                     // redirecciono a la página principal
                     this.router.navigate(['/']);
                 }

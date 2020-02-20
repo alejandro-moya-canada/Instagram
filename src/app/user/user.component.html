@@ -18,7 +18,7 @@
 
     <div *ngIf="posts" class="containerPosts">
         <mat-card class="example-card-posts" *ngFor="let post of posts">
-            <img mat-card-image [src]="BACKEND_URL_IMAGE+post.image">
+            <img mat-card-image  (click)="openDialog(usuario, post)" [src]="BACKEND_URL_IMAGE+post.image">
         </mat-card>
     </div>
 

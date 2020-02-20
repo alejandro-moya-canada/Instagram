@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../../../backend/models/user';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { UserComponent } from './user.component';
+import { UserPostsComponent } from './user-posts/user-posts.component';
 
 
 const BACKEND_URL_USER = environment.apiUrl + "/user/";
@@ -11,7 +14,7 @@ export class userService {
 
     dataUser: any;
 
-    constructor( private http: HttpClient ) {}
+    constructor( public dialog: MatDialog, private http: HttpClient ) {}
 
     getUsuario(userId: string) {
     //    console.log("LLEGO AL SERVICIO, EL ID:  ", userId);
@@ -39,6 +42,30 @@ export class userService {
                 resolve(response);
             });
         });
+    }
+
+    openWindowDialog(usuario: any, post: any) {
+        return new Promise((resolve, reject) => {
+            console.log("LLEGA AL SERVICIO", usuario);
+            const dialogConfig = new MatDialogConfig();
+            dialogConfig.data = { usuario: usuario, post: post };
+
+            console.log("DIALOG CONFIGGG:  ", dialogConfig.data);
+
+            // habilito que solo se salga de la modal haciendo click en el boton cerrar
+            dialogConfig.disableClose = false;
+            dialogConfig.autoFocus = true;
+
+            const dialogRef = this.dialog.open(UserPostsComponent, dialogConfig);
+
+            
+            dialogRef.afterClosed().subscribe(
+                data => {
+                    resolve();
+                },
+                error => console.log("IMPRIMO EL ERROR")
+            );
+        })
     }
 
 }

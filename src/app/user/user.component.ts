@@ -46,4 +46,18 @@ export class UserComponent implements OnInit {
     })
   }
 
+  public openDialog(usuario: any, post: any) {
+    console.log("USUARIOOOÑÑÑÑÑ: ", usuario);
+    console.log("POSTTTÑÑÑÑ: ", post);
+    
+    if(!usuario) {
+      // llamo a la función que se encuentra en el servicio y se encarga de la funcionalidad
+      usuario = false;
+    }
+    this.userService.openWindowDialog(usuario, post).then(response => {
+      console.log("RESPOSEEEEEE:  ", response);
+    });
+    
+  }
+
 }

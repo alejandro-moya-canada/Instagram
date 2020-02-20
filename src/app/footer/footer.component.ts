@@ -20,6 +20,9 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.userIsAuthenticated = this.authService.getIsAuth();
     
     this.userId = this.authService.getUserId();
+    if(this.userId) {
+      this.userId = localStorage.getItem("userId");
+    }
     console.log("ID USUARIO:  ", this.userId);
     
     this.authListenerSubs = this.authService.getAuthStatusListener()
